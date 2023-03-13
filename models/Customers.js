@@ -3,7 +3,7 @@ const Customers = new mongoose.Schema({
 
     name: {
     type: String,
-    required: [true, "Please fill this part"],
+//     required: [true, "Please fill this part"],
    uppercase: true,
     max: 23,
   },
