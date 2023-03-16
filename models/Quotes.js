@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const Customers = new mongoose.Schema({
+const Quotes = new mongoose.Schema({
 
     name: {
     type: String,
@@ -15,7 +15,7 @@ const Customers = new mongoose.Schema({
 
   },
 
-  subject: {
+  phone: {
     type: String, 
   },
 
@@ -24,4 +24,4 @@ const Customers = new mongoose.Schema({
   },
 });
 
-module.exports = mongoose.model('members', Customers)
+module.exports = mongoose.model('teches', Quotes)

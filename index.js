@@ -5,6 +5,8 @@ const fs = require("fs");
 const path = require("path");
 const mongoose = require("mongoose");
 const Customers = require("./models/Customers");
+const Quotes = require("./models/Quotes");
+
 
 const bodyParser = require('body-parser')
 
@@ -67,6 +69,27 @@ app.post("/contact", async (req, res) => {
   }
 });
 
+//Quotes
+app.post("/", async (req, res) => {
+ 
+  try {
+    const quote = await Quotes.create({
+     name: req.body.name,
+      email: req.body.email,
+      phone: req.body.phone, 
+      message: req.body.message,
+    });
+    await quote.save();
+    res.redirect("/");
+  } catch (e) {
+    res.status(400).json({
+    status : 400,
+     message: 'data failed request ',
+     data: e.message
+     })
+    console.log(e.message);
+  }
+});
 //trying
 app.get("/contact", async (req, res) => {
   try {
